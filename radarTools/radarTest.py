@@ -33,13 +33,13 @@ from signal   import pause
 
 radar = DigitalInputDevice(17, pull_up=False, bounce_time=2.0)
 
-def detector():
+def motionDetection():
 	now = datetime.now()
 	activationTime = now.strftime("%Y.%m.%d_%H%M%S")
 	print("Motion detected at " + activationTime)
 	print("Value: " + str(radar.value))
 
 print("Try to activate\n")
-radar.when_activated = detector
+radar.when_activated = motionDetection
 pause()
 
